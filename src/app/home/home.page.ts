@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private route: Router) {}
+
+  AddUusario() {
+    this.route.navigate(["criar-usuario"]);
+  }
 
 }

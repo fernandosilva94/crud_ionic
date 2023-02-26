@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Cadastrar usuário
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form-container">
+
+    <form [formGroup]="formGroup">
+      <ion-title class="title_form">
+        Inserir novo usuário
+      </ion-title>
+
+      <div id="container">
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input formControlName="nome" type="text" placeholder="Nome"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input formControlName="email" type="email" placeholder="E-mail"></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input formControlName="senha" type="password" placeholder="Senha"></ion-input>
+        </ion-item>
+
+      </div>
+      <ion-button expand="block" type="submit" (click)="onSubmit()" color="success">Salvar</ion-button>
+      <ion-button expand="block" (click)="btnVoltar()" color="warning">Voltar</ion-button>
+    </form>
+
+  </div>
+</ion-content>
