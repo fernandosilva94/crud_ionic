@@ -1,0 +1,14 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Spring Boot-CrudIonicApplication<crud-ionic>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"mainClass": "com.ionic.crudionic.CrudIonicApplication",
+			"projectName": "crud-ionic",
+			"args": "",
+			"envFile": "${workspaceFolder}/.env"
+		}
+	]
+}
