@@ -15,6 +15,8 @@ import com.ionic.crudionic.models.UsuarioModel;
 import com.ionic.crudionic.services.UsuarioService;
 
 import jakarta.validation.Valid;
+import jakarta.validation.Validator;
+
 import java.util.List;
 
 @RestController
