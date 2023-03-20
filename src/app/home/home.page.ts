@@ -10,8 +10,4 @@ export class HomePage {
 
   constructor(private route: Router) {}
 
-  AddUusario() {
-    this.route.navigate(["criar-usuario"]);
-  }
-
 }
