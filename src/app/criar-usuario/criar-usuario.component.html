@@ -24,10 +24,21 @@
           <ion-label position="floating">E-mail</ion-label>
           <ion-input formControlName="email" type="email" placeholder="E-mail"></ion-input>
         </ion-item>
-        <ion-item>
 
+        <ion-item>
           <ion-label position="floating">Senha</ion-label>
-          <ion-input formControlName="senha" type="password" placeholder="Senha"></ion-input>
+          <ion-input formControlName="senha" type="{{ isPasswordVisible ? 'text' : 'password' }}" placeholder="Senha" id="password-input"></ion-input>
+          <ion-button slot="end" fill="clear" (click)="togglePasswordVisibility()">
+            <ion-icon name="{{ isPasswordVisible ? 'eye-off' : 'eye' }}"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Confirmar senha</ion-label>
+          <ion-input formControlName="confirmarSenha" type="{{ isPasswordVisible ? 'text' : 'password' }}" placeholder="Confirmar senha" id="confirmarSenha-input"></ion-input>
+          <!-- <div *ngIf="formGroup.hasError('passwordsNotMatch', 'confirmarSenha') && formGroup.get('confirmarSenha')" class="error-message">
+            As senhas não coincidem.
+          </div> -->
         </ion-item>
 
       </div>

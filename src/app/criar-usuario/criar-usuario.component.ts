@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../usuario-service.service';
 import { UsuarioModel } from './../models/UsuarioModel';
+import { ValidatorsService } from './../validators.service';
 
 @Component({
   selector: 'app-criar-usuario',
@@ -11,20 +12,31 @@ import { UsuarioModel } from './../models/UsuarioModel';
 })
 export class CriarUsuarioComponent implements OnInit {
   formGroup: FormGroup;
+  isPasswordVisible: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private validatorsService: ValidatorsService
   ) {
     this.formGroup = this.formBuilder.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(4)]],
+      confirmarSenha: ['', Validators.required],
+    }, {
+      validator: this.validatorsService.matchingPasswords('senha', 'confirmarSenha')
     });
   }
 
   ngOnInit() {}
+
+  togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password-input') as HTMLInputElement;
+    this.isPasswordVisible = !this.isPasswordVisible;
+    passwordInput.setAttribute('type', this.isPasswordVisible ? 'text' : 'password');
+  }
 
   onSubmit(): void {
     const nome = this.formGroup.get('nome')?.value;
@@ -41,7 +53,7 @@ export class CriarUsuarioComponent implements OnInit {
         console.error('Erro ao salvar usuário:', erro);
       },
       complete: () => {
-        alert('Operação concluída.');
+        console.log('Usuario salvo com sucesso.');
         location.reload();
       }
     });
