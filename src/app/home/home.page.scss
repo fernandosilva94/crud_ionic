@@ -25,3 +25,53 @@
 #container a {
   text-decoration: none;
 }
+
+table {
+  border-collapse: collapse;
+  width: 60%;
+  margin: 0 auto;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-family: 'Roboto', sans-serif; /* Use uma fonte legível, por exemplo Roboto */
+  font-size: 1.1rem; /* Aumente um pouco o tamanho da fonte */
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 8px; /* Aumente o espaçamento entre as células da tabela */
+}
+
+th {
+  background-color: #393939;
+  font-weight: 500; /* Aumente o peso da fonte dos cabeçalhos das colunas */
+}
+
+tr:nth-child(even) {
+  background-color: #333;
+}
+
+@media (max-width: 768px) { // defina o ponto de interrupção para dispositivos móveis
+  table {
+    width: 100%; // tabela ocupa 100% da largura disponível em dispositivos móveis
+    font-size: 1rem; // reduz o tamanho da fonte em dispositivos móveis para torná-la mais legível
+  }
+}
+
+@media (max-width: 768px) { // defina o ponto de interrupção para dispositivos móveis
+  table {
+    width: 100%; // tabela ocupa 100% da largura disponível em dispositivos móveis
+  }
+}
+
+// estilo padrão do botão
+ion-button.add-user {
+  color: #fff; // define a cor do texto como branco
+  border-radius: 4px; // arredonda as bordas do botão
+  padding: 5px 2px; // define o preenchimento interno do botão
+  transition: all 0.2s ease-in-out; // adiciona uma transição suave de 0,2 segundos ao botão
+}
+
+ion-icon.add-user-icon {
+  font-size: 20px; // define o tamanho do ícone
+  margin-right: 8px; // adiciona uma margem à direita do ícone
+}
