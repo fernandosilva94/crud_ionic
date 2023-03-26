@@ -1,3 +1,4 @@
+import { UsuarioDto } from './usuario-dto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
@@ -19,4 +20,9 @@ export class UsuarioService {
   salvarUsuario(usuario: UsuarioModel): Observable<UsuarioModel> {
     return this.http.post<UsuarioModel>(`${this.apiUrl}/usuario`, usuario);
   };
+
+  editarUsuario(id: number, usuarioDto: UsuarioDto): Observable<UsuarioModel> {
+    const url = `${this.apiUrl}/usuario/${id}`;
+    return this.http.put<UsuarioModel>(url, usuarioDto);
+  }
 }
