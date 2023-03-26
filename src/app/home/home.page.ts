@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomePage implements OnInit {
   dados: any[] = [];
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(private usuarioService: UsuarioService) {}
   ngOnInit(): void {

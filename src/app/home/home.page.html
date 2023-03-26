@@ -19,10 +19,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let dado of dados">
+      <tr *ngFor="let dado of dados | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
         <td>{{dado.nome}}</td>
         <td>{{dado.email}}</td>
       </tr>
     </tbody>
+    <div class="pagination">
+      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
   </table>
+
 </ion-content>
